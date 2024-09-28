@@ -8,9 +8,7 @@ class Solution {
             for(int j=0;j<n;j++){
                 if(i==j || i+j==n-1){
                     if(isPrime(nums[i][j])){
-                        if(maxPrime<nums[i][j]){
-                            maxPrime=nums[i][j];
-                        }
+                            maxPrime=Math.max(maxPrime,nums[i][j]);  
                     }
                 }
             }
