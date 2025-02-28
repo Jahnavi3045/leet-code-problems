@@ -18,8 +18,10 @@ class Solution {
         if(root==null){
             return false;
         }
-        int currSum=0;
-        return calculateSum(root,currSum,targetSum);
+        if(root.left==null && root.right==null){
+            return targetSum==root.val;
+        }
+        return hasPathSum(root.left,targetSum-root.val) || hasPathSum(root.right,targetSum-root.val);
     }
     public boolean calculateSum(TreeNode root,int currSum,int target){
         
