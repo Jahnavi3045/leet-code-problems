@@ -15,41 +15,32 @@
  */
 class Solution {
     public boolean isSymmetric(TreeNode root) {
+        if(root==null){
+            return true;
+        }
         Queue<TreeNode> q=new LinkedList<>();
-        q.add(root);
+        q.add(root.left);
+        q.add(root.right);
 
         while(!q.isEmpty()){
-            int size=q.size();
-            ArrayList<Integer> level=new ArrayList<>();
-            for(int i=0;i<size;i++){
-                TreeNode temp=q.poll();
+            TreeNode left=q.poll();
+            TreeNode right=q.poll();
 
-                if(temp!=null){
-                    level.add(temp.val);
-                    q.add(temp.left);
-                    q.add(temp.right);
-                }
-                else{
-                    level.add(null);
-                }
+            if(left==null && right==null){
+                continue;
             }
-            if(!isPalindrome(level)){
+
+            if(left==null ||right==null ||left.val!=right.val){
                 return false;
             }
+
+            q.add(left.left);
+            q.add(right.right);
+            q.add(left.right);
+            q.add(right.left);
         }
 
         return true;
     }
 
-    public boolean isPalindrome(ArrayList<Integer> list){
-        int n=list.size();
-
-        for(int i=0;i<n/2;i++){
-            if(list.get(i)!=list.get(n-i-1)){
-                return false;
-            }
-        }
-
-        return true;
-    }
 }
