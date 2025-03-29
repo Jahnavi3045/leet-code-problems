@@ -19,14 +19,6 @@ class Solution {
             int y=large-ts;
             dist=Math.max(dist,Math.max(tl-small,large-ts));
 
-            // if(x>dist && x>y){
-            //     large=tl;
-            //     dist=x;
-            // }
-            // else if(y>dist && y>x){
-            //     small=ts;
-            //     dist=y;
-            // }
             large=Math.max(tl,large);
             small=Math.min(small,ts);
 
