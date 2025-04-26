@@ -13,5 +13,13 @@ class Solution {
         }
 
         return -1;
+
+        // int a=0,b=0;
+
+        // for(int num:nums){
+        //     a^=(num&~b);
+        //     b^=(num&~a);
+        // }
+        // return a;
     }
 }
